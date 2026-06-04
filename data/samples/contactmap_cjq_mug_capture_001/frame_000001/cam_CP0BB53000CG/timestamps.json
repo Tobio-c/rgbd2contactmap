@@ -1,0 +1,16 @@
+{
+  "schema_version": "orbbec_rgbd_capture.timestamps.v0",
+  "capture_wall_time": "2026-06-04T05:57:54.396471+00:00",
+  "color_frame": {
+    "timestamp_ms": 495050,
+    "timestamp_us": 495050866,
+    "system_timestamp_us": 1780552674266142
+  },
+  "depth_frame": {
+    "timestamp_ms": 495051,
+    "timestamp_us": 495051002,
+    "system_timestamp_us": 1780552674267568
+  },
+  "valid_seen_after_start": 31,
+  "saved_index": 1
+}

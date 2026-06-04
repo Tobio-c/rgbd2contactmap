@@ -1,0 +1,71 @@
+{
+  "sample_id": "contactmap_cjq_mug_capture_001_frame000001",
+  "frame_id": 1,
+  "reference_camera": "cam_CP0BB53000CG",
+  "coordinate_frame": "reference_camera",
+  "cameras": [
+    {
+      "camera": "cam_CP0BB53000CG",
+      "rgb": "/tmp/contactmap_cjq_custom/captures/contactmap_cjq_mug_capture_001/frame_000001/cam_CP0BB53000CG/rgb.png",
+      "depth": "/tmp/contactmap_cjq_custom/captures/contactmap_cjq_mug_capture_001/frame_000001/cam_CP0BB53000CG/depth.png",
+      "depth_scale": 1000.0,
+      "intrinsics": [
+        [
+          689.3148193359375,
+          0.0,
+          637.35546875
+        ],
+        [
+          0.0,
+          689.1137084960938,
+          361.297119140625
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "camera_to_reference": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "camera_json": "/tmp/contactmap_cjq_custom/captures/contactmap_cjq_mug_capture_001/frame_000001/cam_CP0BB53000CG/camera.json",
+      "object_mask": ""
+    }
+  ],
+  "hand": {
+    "source": "unset",
+    "camera": "cam_CP0BB53000CG"
+  },
+  "object": {
+    "route": "rgbd_visible_surface",
+    "object_id": "mug"
+  },
+  "thresholds": {
+    "contact_threshold_m": 0.006,
+    "near_threshold_m": 0.02
+  }
+}

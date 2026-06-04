@@ -1,0 +1,42 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Local env / secrets
+.env
+.envrc
+.local/
+.vscode/
+.idea/
+
+# Generated outputs: never upload pipeline results
+outputs/*
+!outputs/.gitkeep
+reports/*
+!reports/.gitkeep
+*.log
+
+# Model checkpoints and external heavyweight assets
+models/
+checkpoints/
+weights/
+*.pth
+*.pt
+*.ckpt
+*.safetensors
+*.onnx
+
+# Local archives / old experiments
+*_archive*/
+_archive_legacy/
+*.tar
+*.tar.gz
+*.zip
+
+# OS
+.DS_Store
+Thumbs.db

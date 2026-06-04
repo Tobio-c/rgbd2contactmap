@@ -1,0 +1,41 @@
+sample_id: contactmap_cjq_mug_capture_001_frame000001
+route: sam_click_foundationpose_wilor_single_rgbd
+
+source:
+  dataset: CustomOrbbec
+  frame_index: 1
+  frame_name: '000001'
+  camera: cam_CP0BB53000CG
+  object_id: 1
+  object_name: custom_mug
+
+local_inputs:
+  rgb: data/samples/contactmap_cjq_mug_capture_001/frame_000001/cam_CP0BB53000CG/rgb.png
+  depth: data/samples/contactmap_cjq_mug_capture_001/frame_000001/cam_CP0BB53000CG/depth.png
+  descriptor_json: data/samples/contactmap_cjq_mug_capture_001/frame_000001/descriptor.json
+  camera_json: data/samples/contactmap_cjq_mug_capture_001/frame_000001/cam_CP0BB53000CG/camera.json
+  intrinsics_yml: data/samples/contactmap_cjq_mug_capture_001/frame_000001/cam_CP0BB53000CG/intrinsics.yml
+  cad_mesh_obj: data/samples/contactmap_cjq_mug_capture_001/cad/body1_metric_centered.obj
+  cad_mesh_simple_obj: data/samples/contactmap_cjq_mug_capture_001/cad/body1_metric_centered.obj
+  # Optional DexYCB-style debug labels; not required for this custom sample.
+  labels_npz: data/samples/contactmap_cjq_mug_capture_001/optional_labels_missing.npz
+  sequence_pose_npz: data/samples/contactmap_cjq_mug_capture_001/optional_pose_missing.npz
+  meta_yml: data/samples/contactmap_cjq_mug_capture_001/optional_meta_missing.yml
+  extrinsics_yml: data/samples/contactmap_cjq_mug_capture_001/optional_extrinsics_missing.yml
+
+current_mainline:
+  object_mask_source: sam_manual_click_prompt_no_object_pose_seed
+  object_pose_source: foundationpose_rgbd_cad_visible_mask_target
+  hand_source_priority:
+    - wilor_predicted_mano_params_rgbd
+  coordinate_frame: reference_camera_color_frame
+  depth_unit_expected: uint16_mm_loaded_as_meter_after_divide_1000
+  contact_rule: surface_distance_only
+  penetration: diagnostic_only_not_contact
+
+thresholds:
+  contact_threshold_m: 0.006
+  near_threshold_m: 0.02
+
+outputs:
+  root: outputs

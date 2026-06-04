@@ -1,0 +1,66 @@
+# contactmap_cjq migration requirements
+#
+# Recommended Python:
+#   Python 3.10 for the SAM/WiLoR route.
+#
+# Current local setup uses two existing conda envs:
+#   /home/originflow/miniforge3/envs/contactpose  # Open3D/CAD/depth stages
+#   /home/originflow/miniforge3/envs/wilor        # SAM/WiLoR stages
+#
+# For migration, a single Python 3.10 env is preferred if Open3D is installed successfully.
+# If Open3D/PyTorch CUDA conflicts occur, keep two envs as above.
+
+# Core numeric / image / geometry packages
+numpy>=1.24,<3
+scipy>=1.10
+PyYAML>=6.0
+Pillow>=9.5
+opencv-python>=4.6
+open3d>=0.17
+
+# PyTorch stack
+# Install the CUDA/CPU wheel matching the target machine.
+# Example CUDA 12.8 command used conceptually on this machine:
+#   pip install torch torchvision --index-url https://download.pytorch.org/whl/cu128
+torch>=2.1
+torchvision>=0.16
+
+# SAM frontend
+# If this direct git install is unavailable, install Meta's segment-anything package manually
+# and place the checkpoint at models/sam/sam_vit_b_01ec64.pth or update script args.
+segment-anything @ git+https://github.com/facebookresearch/segment-anything.git
+
+# WiLoR / detector runtime dependencies
+ultralytics>=8.1
+timm>=0.9
+pytorch-lightning>=1.8
+smplx>=0.1.28
+einops>=0.6
+yacs>=0.1.8
+trimesh>=3.23
+pyrender>=0.1.45
+
+# Notes for local/external assets not installed by pip:
+#
+# 1. WiLoR repo must be available and importable, e.g.:
+#      git clone <WiLoR repo> /path/to/WiLoR
+#      export PYTHONPATH=/path/to/WiLoR:$PYTHONPATH
+#    Current local path:
+#      /home/originflow/project/WiLoR
+#
+# 2. WiLoR model files required by Stage I2:
+#      /path/to/WiLoR/pretrained_models/wilor_final.ckpt
+#      /path/to/WiLoR/pretrained_models/detector.pt
+#      /path/to/WiLoR/pretrained_models/model_config.yaml
+#      /path/to/WiLoR/pretrained_models/dataset_config.yaml
+#
+# 3. SAM checkpoint required by Stage F:
+#      sam_vit_b_01ec64.pth
+#    Current local path:
+#      /home/originflow/project/contact_pipeline/models/sam/sam_vit_b_01ec64.pth
+#
+# 4. Project sample data required:
+#      data/samples/dexycb_obj005_frame000035/
+#
+# 5. Optional/debug only:
+#      DexYCB full dataset root and subject MANO calibration if regenerating smoke-test labels/pose seeds.
